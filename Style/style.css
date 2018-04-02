@@ -1,0 +1,40 @@
+main {
+  margin: 2% auto;
+  width: 75%; }
+
+table {
+  border-collapse: collapse; }
+
+th, td {
+  border: 1px solid #eee;
+  padding: 10px 15px; }
+
+label, button {
+  display: block;
+  margin: 5px 0 10px 0;
+  height: 26px; }
+
+footer {
+  font-size: 0.8em;
+  margin: 2em 0;
+  text-align: center; }
+
+.navbar-toggle {
+  padding-bottom: 22px !important; }
+
+.main.jumbotron {
+  padding-right: 0 !important; }
+
+.dogTable {
+  padding-right: 0; }
+
+.btn {
+  margin: 10px 4px; }
+
+.btn-delete {
+  margin: 10px 0; }
+
+input[type="radio"] {
+  margin: 5px; }
+
+/*# sourceMappingURL=style.css.map */
