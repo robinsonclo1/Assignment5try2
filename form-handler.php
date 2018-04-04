@@ -14,8 +14,8 @@ function handleForm($con) {
     $_POST['dogName'],
     $_POST['breed'],
     $_POST['age'],
-    $_POST['vac'],
-    $_POST['fixed']
+    $_POST['fixed'],
+    $_POST['vac']
   );
 
   // step 2
