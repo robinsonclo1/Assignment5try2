@@ -15,7 +15,8 @@ function handleForm($con) {
     $_POST['breed'],
     $_POST['age'],
     $_POST['vac'],
-    $_POST['fixed']);
+    $_POST['fixed']
+  );
 
   // step 2
   if (!$dog->hasAllValues()) {
