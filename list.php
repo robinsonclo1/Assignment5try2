@@ -21,8 +21,8 @@ $result = $con->query($q);
             <th>Name</th>
             <th>Breed</th>
             <th>Age</th>
-            <th>Fixed</th>
             <th>Vaccinated</th>
+            <th>Fixed</th>
             <th>Action</th>
           </tr>
 
@@ -31,8 +31,8 @@ $result = $con->query($q);
             <td><?=$row['dog_name']?></td>
             <td><?=$row['breed_name']?></td>
             <td><?=$row['age']?></td>
-            <td><?=$row['is_fixed'] ? 'Yes' : 'No'?></td>
             <td><?=$row['is_vaccinated'] ? 'Yes' : 'No'?></td>
+            <td><?=$row['is_fixed'] ? 'Yes' : 'No'?></td>
             <td>
 
               <a href="addDog.php?id=<?=$row['dog_id']?>" class="btn btn-primary">Edit</a>

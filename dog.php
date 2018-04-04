@@ -21,7 +21,7 @@ class Dog {
    * Here we've added six parameters to initialize the six properties on our
    * object.
    */
-  public function __construct($dogId = null, $dogName = '', $breedID = '',
+  public function __construct($dogId = null, $dogName = '', $breedID = null,
     $age = '', $isFixed = false, $isVaccinated = false) {
     $this->id = $dogId;
     $this->name = $dogName;
@@ -48,23 +48,25 @@ class Dog {
   }
 
   /**
-   * This function will generate the SQL necessary to save the game to the
+   * This function will generate the SQL necessary to save the dog to the
    * database. Depending on whether the dog has an ID, it will return either
    * an update (yes) or an insert (no) statement.
    */
   public function getQuery() {
-    // note the curly braces where we call a method inside the double quotes
     if ($this->haveDogId()) {
+      var_dump($this);
+      ?><br><br><?=
+      print_r($this);
       return "update dogs
         set dog_name = '$this->name',
-        breed_id = '$this->breed_id',
-        age = '$this->age',
-        is_fixed = {$this->fixedBoolToInt()},
-        is_vaccinated = {$this->vacBoolToInt()},
+        breed_id = $this->breed_id,
+        age = {$this->ageIsNumeric()},
+        is_fixed = '{$this->fixedBoolToInt()}',
+        is_vaccinated = '{$this->vacBoolToInt()}'
         where dog_id = $this->id";
     } else {
       return "insert into dogs (dog_name, breed_id, age, is_fixed, is_vaccinated)
-        values ('$this->name', '$this->breed_id', '$this->age', '{$this->fixedBoolToInt()}',
+        values ('$this->name', '$this->breed_id', {$this->ageIsNumeric()}, '{$this->fixedBoolToInt()}',
         '{$this->vacBoolToInt()}')";
     }
   }
@@ -78,8 +80,9 @@ class Dog {
   }
 
   /**
-   * In PHP, we are using true or false for completed, but when we save to the
-   * database, we need 1 or 0. This function does that conversion for us.
+   * I would like to combine these functions but I couldn't figure out how
+   * to do it without passing the var, which meant I would pass it through
+   * getQuery() too.
    */
   private function fixedBoolToInt() {
     return $this->is_fixed ? 1 : 0;
